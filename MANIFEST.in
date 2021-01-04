@@ -1,0 +1,7 @@
+include requirements.txt
+include pyproject.toml
+include LICENSE*
+recursive-include doc/img *
+recursive-include tests *
+global-exclude *.pth
+global-exclude *.pyc
