@@ -8,7 +8,7 @@
 
 <img src="doc/img/logo_small.png" align="left" width="96">
 
-This repository implements the Householder transformation algorithm for calculating orthogonal matrices and Stiefel
+This repository implements the Householder transformation algorithm for calculating orthogonal matrices and orthonormal
 frames. The algorithm is implemented as a Python package with differentiable bindings to PyTorch. In particular, the 
 package provides an enhanced drop-in replacement for the `torch.orgqr` function. 
 
@@ -25,7 +25,7 @@ orthogonal transformation when the input matrix is skew-symmetric. This is the b
 
 Compared to `torch.matrix_exp`, the Householder transformation implemented in this package has the following advantages: 
 - Orders of magnitude lower memory footprint
-- Ability to transform non-square matrices (Stiefel frames)
+- Ability to transform non-square matrices (orthonormal frames)
 - A significant speed-up for non-square matrices
 - Better numerical precision for all matrix and batch sizes
 
@@ -76,7 +76,7 @@ hh = param.tril(diagonal=-1) + torch.eye(D, R)
 
 mat = torch_householder_orgqr(hh)
 
-print(mat)              # a 4x2 Stiefel frame
+print(mat)              # a 4x2 orthonormal frame
 print(mat.T.mm(mat))    # a 2x2 identity matrix
 ```
 
@@ -107,14 +107,14 @@ matrices altogether.
 
 The `torch.matrix_exp` only deals with square matrices; hence to parameterize a thin matrix with `d > r`, we perform 
 transformation of a square skew-symmetric matrix `d x d` and then take a `d x r` minor from the result. This aspect 
-makes `torch.matrix_exp` especially inefficient for parameterizing Stiefel frames and provides major speed gains to the 
+makes `torch.matrix_exp` especially inefficient for parameterizing orthonormal frames and provides major speed gains to the 
 Householder transformation. 
 
 ## Numerical Precision
 
 The numerical precision of an orthogonal transformation is evaluated using a synthetic [test](tests/benchmark.py#L50). 
 Given a matrix size `d x r`, we generate random inputs and perform orthogonal transformation with the tested function. 
-Since the output `M` of size `d x r` is expected to be a Stiefel frame, we calculate transformation error using the 
+Since the output `M` of size `d x r` is expected to be a orthonormal frame, we calculate transformation error using the 
 formula below. This calculation is repeated for each matrix size at least 5 times, and the results are averaged.
 
 <p align="center">
