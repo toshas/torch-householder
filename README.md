@@ -151,6 +151,6 @@ To cite this repository, use the following BibTeX:
     author = {Anton Obukhov},
     year = 2021,
     title = {Efficient Householder transformation in PyTorch},
-    url = {www.github.com/toshas/torch-householder}
+    url = {https://github.com/toshas/torch-householder}
 }
 ```
