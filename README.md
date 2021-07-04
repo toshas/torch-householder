@@ -5,6 +5,7 @@
 [![PyPiDownloads](https://pepy.tech/badge/torch-householder)](https://pepy.tech/project/torch-householder)
 [![License](https://img.shields.io/badge/License(code)-BSD%203--Clause-blue.svg)](LICENSE_code)
 [![License: CC BY 4.0](https://img.shields.io/badge/License(doc)-CC%20BY%204.0-lightgrey.svg)](LICENSE_doc)
+[![Twitter Follow](https://img.shields.io/twitter/follow/AntonObukhov1?style=social&label=Subscribe!)](https://twitter.com/antonobukhov1)
 
 <img src="doc/img/logo_small.png" align="left" width="96">
 
