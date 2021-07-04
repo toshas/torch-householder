@@ -120,7 +120,10 @@ formula below. This calculation is repeated for each matrix size several times, 
 <img src="doc/img/formula_err.png">
 </p>
 
-All experiments are conducted with float32 dtype, unless specified otherwise.
+All experiments are conducted with float32 dtype, unless specified otherwise. We set a timeout of 10 min for each 
+experiment, which leaves roughly 5 min for each transformation (including one mandatory warm-up iteration). Those 
+interested in revealing true values in magenta and yellow areas in the plots below can increase the timeout and re-run 
+the corresponding experiments.
 
 ### Benchmarking `torch.matrix_exp` against torch-householder
 
