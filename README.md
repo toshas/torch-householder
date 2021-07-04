@@ -185,6 +185,10 @@ To cite this repository, use the following BibTeX:
   author={Anton Obukhov},
   year=2021,
   title={Efficient Householder Transformation in PyTorch},
-  url={www.github.com/toshas/torch-householder}
+  url={www.github.com/toshas/torch-householder},
+  publisher={Zenodo},
+  version={v1.0.1},
+  doi={10.5281/zenodo.5068733},
+  note={Version: 1.0.1, DOI: 10.5281/zenodo.5068733}
 }
 ```
