@@ -1,1 +1,2 @@
-from .householder import torch_householder_orgqr
+from torch_householder.householder import torch_householder_orgqr
+from torch_householder.version import __version__

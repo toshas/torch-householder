@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 import os
-from setuptools import setup, find_packages, Extension
+from setuptools import setup, find_packages
 from torch.utils.cpp_extension import BuildExtension, CppExtension
 
+with open(os.path.join('torch_householder', 'version.py')) as f:
+    version_pycode = f.read()
+exec(version_pycode)
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
@@ -37,7 +40,7 @@ https://www.github.com/toshas/torch-householder
 
 setup(
     name='torch_householder',
-    version='1.0.1',
+    version=__version__,
     description='Efficient Householder Transformation in PyTorch',
     long_description=long_description,
     long_description_content_type='text/markdown',
