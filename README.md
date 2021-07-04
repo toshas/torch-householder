@@ -101,7 +101,7 @@ two methods. We then associate each such tuple with a ratio of run times taken b
 
 We perform a sweep of matrix dimensions `d` and `r`, starting with `1` and doubling each time until reaching `32768`. 
 The batch dimension is swept similarly until reaching the maximum size of `2048`. The sweeps were performed 
-on a single NVIDIA P-100 GPU with 16 GB of RAM using the code from the [benchmark](tests/benchmark_all.py): 
+on a single NVIDIA P-100 GPU with 16 GB of RAM using the code from the [benchmark](tests/benchmark_all.py). 
 
 Since the `ORGQR` function's convention assumes only thin matrices with `d >= r > 0`, we skip the evaluation of fat 
 matrices altogether.    
