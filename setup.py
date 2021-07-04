@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Extension
 from torch.utils.cpp_extension import BuildExtension, CppExtension
 
 
@@ -9,9 +9,9 @@ with open('requirements.txt') as f:
 
 
 long_description = """
-This package implements the Householder transformation algorithm for calculating orthogonal matrices and Stiefel frames 
-with differentiable bindings to PyTorch. In particular, the package provides an enhanced drop-in replacement for the 
-`torch.orgqr` function. 
+This package implements the Householder transformation algorithm for calculating orthogonal matrices and orthonormal 
+frames with differentiable bindings to PyTorch. In particular, the package provides an enhanced drop-in replacement for 
+the `torch.orgqr` function, which was renamed into `torch.linalg.householder_product` as of PyTorch 1.9. 
 
 APIs for orthogonal transformations have been around since LAPACK; however, their support in the deep learning 
 frameworks is lacking. Recently, orthogonal constraints have become popular in deep learning as a way to regularize
@@ -21,9 +21,12 @@ PyTorch 1.7 implements matrix exponential function `torch.matrix_exp`, which can
 orthogonal transformation when the input matrix is skew-symmetric. This is the baseline we use in Speed and Precision 
 evaluation.   
 
+PyTorch 1.9 renamed `torch.orgqr` into `torch.linalg.householder_product`, and added support of autograd, batching, and 
+GPU execution.
+
 Compared to `torch.matrix_exp`, the Householder transformation implemented in this package has the following advantages: 
 - Orders of magnitude lower memory footprint
-- Ability to transform non-square matrices (Stiefel frames)
+- Ability to transform non-square matrices (orthonormal frames)
 - A significant speed-up for non-square matrices
 - Better numerical precision for all matrix and batch sizes
 
@@ -34,8 +37,8 @@ https://www.github.com/toshas/torch-householder
 
 setup(
     name='torch_householder',
-    version='1.0.0',
-    description='Efficient Householder transformation in PyTorch',
+    version='1.0.1',
+    description='Efficient Householder Transformation in PyTorch',
     long_description=long_description,
     long_description_content_type='text/markdown',
     install_requires=requirements,
@@ -50,8 +53,10 @@ setup(
     cmdclass={
         'build_ext': BuildExtension
     },
+    include_package_data=True,
+    package_data={'': ['torch_householder/householder.cpp']},
     keywords=[
-        'pytorch', 'householder', 'orgqr', 'efficient', 'differentiable',
-        'orthogonal', 'transformation', 'unitary', 'matrices'
+        'pytorch', 'householder', 'orgqr', 'householer_product', 'efficient', 'differentiable',
+        'orthogonal', 'transformation', 'unitary', 'matrices', 'stiefel', 'manifold',
     ],
 )
