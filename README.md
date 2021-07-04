@@ -179,9 +179,9 @@ To cite this repository, use the following BibTeX:
 
 ```
 @misc{obukhov2021torchhouseholder,
-    author = {Anton Obukhov},
-    year = 2021,
-    title = {Efficient Householder transformation in PyTorch},
-    url = {www.github.com/toshas/torch-householder}
+  author={Anton Obukhov},
+  year=2021,
+  title={Efficient Householder Transformation in PyTorch},
+  url={www.github.com/toshas/torch-householder}
 }
 ```
