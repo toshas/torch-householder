@@ -1,7 +1,6 @@
 # Efficient Householder Transformation in PyTorch
 
 [![PyPiVersion](https://badge.fury.io/py/torch-householder.svg)](https://pypi.org/project/torch-householder/)
-![PythonVersion](https://img.shields.io/badge/python-%3E%3D3.6-yellowgreen)
 [![PyPiDownloads](https://pepy.tech/badge/torch-householder)](https://pepy.tech/project/torch-householder)
 [![Twitter Follow](https://img.shields.io/twitter/follow/AntonObukhov1?style=social&label=Subscribe!)](https://twitter.com/antonobukhov1)
 
